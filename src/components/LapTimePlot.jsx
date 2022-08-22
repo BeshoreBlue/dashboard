@@ -1,9 +1,9 @@
 import Card from "react-bootstrap/Card";
 import Plot from "react-plotly.js";
 
-const LapTimePlot = ({ roundData }) => {
+const LapTimePlot = ({ data }) => {
 
-    const lapTimeByLapData = roundData?.driverData.map(driver => {
+    const lapTimeByLapData = data?.map(driver => {
         return {
             x: [...Array(driver.time.length).keys()],
             y: driver.time.map(time => '2020-01-08 00:0' + time),

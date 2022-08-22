@@ -16,7 +16,7 @@ const formatRoundData = (data) => {
         // create entries for each starting driver
         const driverData = lapsData[0].Timings.map((driver) => {
             return {
-                driver: driver.driverId, time: [], position: [], pitstops: []
+                driver: driver.driverId, time: [], position: []
             }
         })
         // add time and position for each lap
@@ -27,25 +27,28 @@ const formatRoundData = (data) => {
                 entry.position.push(driver.position)
             })
         })
-        // add pitstop laps and durations
-        pitstopData.map(pitstop => {
-            const entry = driverData.find(entry => entry.driver === pitstop.driverId);
-            entry.pitstops.push({ lap: pitstop.lap, duration: pitstop.duration })
-        })
-        // add fastest laps
-        resultsData.Results.map(driver => {
-            const entry = driverData.find(entry => entry.driver === driver.Driver.driverId);
-            entry.fastest = { time: driver.FastestLap.Time.time, lap:  driver.FastestLap.lap}
-        })
-
         return driverData;
+    }
+
+    const getResultsData = () => {
+        const results = resultsData.Results;
+
+        // add pitstop laps and durations to results data
+        pitstopData.map(pitstop => {
+            const driverEntry = resultsData.Results.find(entry => entry.Driver.driverId === pitstop.driverId)
+            console.log(driverEntry)
+            driverEntry.pitstops ?
+                driverEntry.pitstops.push({ lap: pitstop.lap, duration: pitstop.duration })
+                : driverEntry.pitstops = [];
+        })
+        return results;
     }
 
      return {
             circuitName: resultsData.Circuit.circuitName,
             driverData: getDriverData(),
             raceName: resultsData.raceName,
-            results: resultsData.Results,
+            results: getResultsData(),
             round: resultsData.round
         };
 };

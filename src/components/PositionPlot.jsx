@@ -1,9 +1,9 @@
 import Card from "react-bootstrap/Card";
 import Plot from "react-plotly.js";
 
-const PositionPlot = ({ roundData }) => {
+const PositionPlot = ({ data }) => {
 
-    const positionByLapData = roundData?.driverData.map(driver => {
+    const positionByLapData = data?.map(driver => {
         return {
             x: [...Array(driver.position.length).keys()],
             y: driver.position,

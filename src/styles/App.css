@@ -33,7 +33,7 @@
 }
 
 .Dashboard {
-  margin: 10px;
+  margin: 20px;
 }
 #dropdown {
   background-color: var(--pale-green);
@@ -41,6 +41,18 @@
 }
 
 #dash-card {
-  margin: 20px;
+  margin-bottom: 20px;
+}
+
+.Data-table {
+  font-size: 14px;
+}
+
+thead, tbody { display: block; }
+
+tbody {
+  height: 405px;       /* Just for the demo          */
+  overflow-y: auto;    /* Trigger vertical scroll    */
+  overflow-x: hidden;  /* Hide the horizontal scroll */
 }
 
