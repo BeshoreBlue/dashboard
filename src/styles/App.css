@@ -1,6 +1,13 @@
+:root {
+  --grey: #dce4e4;
+  --base-green: #146961;
+  --dark-grey: #1c1f1f;
+  --dark-green: #0f342b;
+  --pale-green: #79b3b4;
+}
+
 .App {
-  background-color:
-          #dce4e4;
+  background-color: var(--grey);
 }
 
 .Button-container {
@@ -12,20 +19,28 @@
 .Container {
   flex-direction: row;
 }
+.Text-container {
+  margin-left: 20px;
+}
 
 .Dash-header {
-  background-color: #106961;
+  background-color: var(--base-green);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 20px;
   width: 100%
 }
 
 .Dashboard {
-
+  margin: 10px;
+}
+#dropdown {
+  background-color: var(--pale-green);
+  border-color: var(--pale-green);;
 }
 
-.Menu-button {
-  background-color: #106961;
-  border-color: #ffffff;
-  padding: 5px;
+#dash-card {
+  margin: 20px;
 }
 

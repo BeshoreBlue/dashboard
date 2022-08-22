@@ -1,8 +1,16 @@
 // Format data for charting
 const formatRoundData = (data) => {
-    const lapsData = data[0].MRData.RaceTable.Races[0].Laps;
-    const pitstopData = data[1].MRData.RaceTable.Races[0].PitStops;
+    if (!data) {
+        return null;
+    }
+
+    const lapsData = data[0].MRData.RaceTable.Races[0]?.Laps;
+    const pitstopData = data[1].MRData.RaceTable.Races[0]?.PitStops;
     const resultsData = data[2].MRData.RaceTable.Races[0];
+
+    if (!lapsData && !pitstopData && !resultsData) {
+        return { round: data[2].MRData.RaceTable.round || 1 }
+    }
 
     const getDriverData = () => {
         // create entries for each starting driver
@@ -34,8 +42,11 @@ const formatRoundData = (data) => {
     }
 
      return {
+            circuitName: resultsData.Circuit.circuitName,
             driverData: getDriverData(),
+            raceName: resultsData.raceName,
             results: resultsData.Results,
+            round: resultsData.round
         };
 };
 
