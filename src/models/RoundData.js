@@ -37,7 +37,6 @@ const RoundData = (data) => {
 
     const getResultsData = () => {
         const results = resultsData.Results;
-
         // add pitstop laps and durations to results data
         pitstopData.map(pitstop => {
             const driverEntry = resultsData.Results.find(entry => entry.Driver.driverId === pitstop.driverId)

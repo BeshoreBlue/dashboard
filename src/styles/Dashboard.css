@@ -1,0 +1,28 @@
+.dashboard {
+    margin: 20px;
+}
+
+#dash-card {
+    border-color: var(--dark-green);
+    margin-bottom: 20px;
+}
+
+#dash-card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-table {
+    font-size: 14px;
+}
+
+.table-header {
+    background-color: var(--base-green);
+    color: white;
+}
+
+tr:hover {
+    background-color: var(--pale-green);
+    font-weight: bold;
+}

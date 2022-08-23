@@ -23,9 +23,9 @@ const ResultsTable = ({ data }) => {
         <Card id="dash-card">
             <Card.Header>Race results</Card.Header>
             <Card.Body id="dash-card-content">
-                <Table striped bordered hover size="sm" className="Data-table">
+                <Table striped bordered hover size="sm" className="data-table">
                     <thead>
-                    <tr>
+                    <tr className="table-header">
                         <th>Position</th>
                         <th>Driver</th>
                         <th>Laps</th>

@@ -2,20 +2,23 @@ import Table from 'react-bootstrap/Table';
 import Card from "react-bootstrap/Card";
 
 const PitstopsTable = ({ data }) => {
+    if (!data) {
+        return null;
+    }
 
-    const resultsBody = data?.map(driver => {
+    const resultsBody = data.map(driver => {
         const pitstopTimes = driver.pitstops?.map(stop => {
             return (
                 <>
                     {`${stop.lap}, ${stop.duration}`}
-                    <br></br>
+                    <br/>
                 </>
             )
         })
         return (
             <tr>
                 <td>{driver.position}</td>
-                <td>{driver.Driver.code}</td>
+                <td>{driver.Driver?.code}</td>
                 <td>{driver.pitstops?.length}</td>
                 <td>{pitstopTimes}</td>
             </tr>
@@ -25,17 +28,17 @@ const PitstopsTable = ({ data }) => {
     return (
         <Card id="dash-card">
             <Card.Header>Pitstops</Card.Header>
-            <Card.Body>
-                <Table striped bordered hover size="sm" className="Data-table">
+            <Card.Body id="dash-card-content">
+                <Table striped bordered hover size="sm" className="data-table">
                     <thead>
-                    <tr>
+                    <tr className="table-header">
                         <th>Finished</th>
                         <th>Driver</th>
                         <th>Stops</th>
-                        <th>Lap, duration</th>
+                        <th>Lap(s), duration</th>
                     </tr>
                     </thead>
-                    <tbody className="Scroll-body">
+                    <tbody>
                     {resultsBody}
                     </tbody>
                 </Table>

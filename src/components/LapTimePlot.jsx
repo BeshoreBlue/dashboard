@@ -20,12 +20,11 @@ const LapTimePlot = ({ data }) => {
     return (
         <Card id="dash-card">
             <Card.Header>Driver laptime by lap</Card.Header>
-            <Card.Body>
+            <Card.Body id="dash-card-content">
                 <Plot
                     data={lapTimeByLapData}
                     layout={{
                         autosize: true,
-
                         xaxis: {
                             title: 'Lap'
                         },

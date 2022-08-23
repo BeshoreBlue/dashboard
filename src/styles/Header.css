@@ -1,0 +1,25 @@
+.dash-header {
+    background-color: var(--base-green);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    width: 100%
+}
+
+.title-container {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+#dropdown-button {
+    background-color: var(--pale-green);
+    border-color: var(--dark-green);
+    font-weight: bold;
+}
+
+#menu-active-item {
+    background-color: var(--base-green);
+}

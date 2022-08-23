@@ -12,67 +12,10 @@
   height: 100vh;
 }
 
-.Button-container {
-  display: flex;
-  flex-direction: column;
-  width: 100px
-}
-
-.Spinner-container {
+.center-container {
   display: flex;
   justify-content: center;
 }
 
-.Container {
-  flex-direction: row;
-}
-.Text-container {
-  font-size: 20px;
-  color: white;
-  font-weight: bold;
-  margin-left: 20px;
-}
 
-.Dash-header {
-  background-color: var(--base-green);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 20px;
-  width: 100%
-}
-
-.Dashboard {
-  margin: 20px;
-}
-
-#dropdown-button {
-  background-color: var(--pale-green);
-  border-color: var(--dark-green);
-  font-weight: bold;
-}
-
-#dropdown-menu-active-item {
-  background-color: var(--base-green);
-}
-
-
-#dash-card {
-  margin-bottom: 20px;
-}
-
-#dash-card-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Data-table {
-  font-size: 14px;
-}
-
-tr:hover {
-  background-color: var(--pale-green);
-  font-weight: bold;
-}
 
