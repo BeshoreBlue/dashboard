@@ -14,22 +14,17 @@ const RoundData = (data) => {
 
     const getDriverData = () => {
         // create entries for each starting driver
-        const driverData = lapsData[0].Timings.map((driver) => {
+        const driverData = resultsData.Results.map(result => {
             return {
-                driver: driver.driverId, time: [null], position: []
+                driver: result.Driver.driverId, time: [null], position: [result.grid]
             }
         })
-        // add starting position
-        resultsData.Results.map(driver => {
-            const entry = driverData.find(entry => entry.driver === driver.Driver.driverId);
-            entry.position.push(driver.grid)
-        })
         // add time and position for each lap
-        lapsData.map((lap) => {
+        lapsData?.map((lap) => {
             lap.Timings.map((driver) => {
                 const entry = driverData.find(entry => entry.driver === driver.driverId);
-                entry.time.push(driver.time);
-                entry.position.push(driver.position)
+                entry?.time.push(driver.time);
+                entry?.position.push(driver.position)
             })
         })
         return driverData;

@@ -5,11 +5,12 @@
   --dark-grey: #1c1f1f;
   --dark-green: #0f342b;
   --pale-green: #79b3b4;
+
+  height: 100vh;
 }
 
 .App {
   background-color: var(--grey);
-  height: 100vh;
 }
 
 .center-container {
