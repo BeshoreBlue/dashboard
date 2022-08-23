@@ -9,14 +9,14 @@ const PitstopsTable = ({ data }) => {
     const resultsBody = data.map(driver => {
         const pitstopTimes = driver.pitstops?.map(stop => {
             return (
-                <>
+                <div key={`${driver.Driver.code}-pitstop-${stop.lap}`}>
                     {`${stop.lap}, ${stop.duration}`}
                     <br/>
-                </>
+                </div>
             )
         })
         return (
-            <tr>
+            <tr key={`${driver.Driver.code}-pitstops`}>
                 <td>{driver.position}</td>
                 <td>{driver.Driver?.code}</td>
                 <td>{driver.pitstops?.length}</td>

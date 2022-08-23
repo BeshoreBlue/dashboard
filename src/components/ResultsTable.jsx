@@ -8,7 +8,7 @@ const ResultsTable = ({ data }) => {
 
     const resultsBody = data.map(driver => {
         return (
-            <tr>
+            <tr key={`${driver.Driver.code}-results`}>
                 <td>{driver.position}</td>
                 <td>{driver.Driver.code}</td>
                 <td>{driver.laps}</td>

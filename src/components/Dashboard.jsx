@@ -31,7 +31,7 @@ const Dashboard = ({ roundData, loading }) => {
     return (
         <div className="dashboard">
             <Row lg={1} xl={2} className="g-4">
-                <Col xl={8}>
+                <Col xl={7}>
                     {roundData?.driverData &&
                         <>
                             <LapTimePlot data={roundData.driverData} />
@@ -39,7 +39,7 @@ const Dashboard = ({ roundData, loading }) => {
                         </>
                     }
                 </Col>
-                <Col xl={4}>
+                <Col xl={5}>
                     {roundData?.results &&
                         <>
                             <PitstopsTable data={roundData.results}/>
