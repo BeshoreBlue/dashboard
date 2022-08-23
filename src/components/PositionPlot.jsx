@@ -2,8 +2,11 @@ import Card from "react-bootstrap/Card";
 import Plot from "react-plotly.js";
 
 const PositionPlot = ({ data }) => {
+    if (!data) {
+        return null;
+    }
 
-    const positionByLapData = data?.map(driver => {
+    const positionByLapData = data.map(driver => {
         return {
             x: [...Array(driver.position.length).keys()],
             y: driver.position,
@@ -17,16 +20,17 @@ const PositionPlot = ({ data }) => {
     return (
         <Card id="dash-card">
             <Card.Header>Driver position by lap</Card.Header>
-            <Card.Body>
+            <Card.Body id="dash-card-content">
                 <Plot
                     data={positionByLapData}
                     layout={{
                         autosize: true,
                         xaxis: {
-                            title: 'Lap'
+                            title: 'Lap',
                         },
                         yaxis: {
                             autorange: 'reversed',
+                            fixedrange: true,
                             title: 'Position',
                         },
                     }}

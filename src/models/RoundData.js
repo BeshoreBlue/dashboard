@@ -1,5 +1,5 @@
 // Format data for charting
-const formatRoundData = (data) => {
+const RoundData = (data) => {
     if (!data) {
         return null;
     }
@@ -16,8 +16,13 @@ const formatRoundData = (data) => {
         // create entries for each starting driver
         const driverData = lapsData[0].Timings.map((driver) => {
             return {
-                driver: driver.driverId, time: [], position: []
+                driver: driver.driverId, time: [null], position: []
             }
+        })
+        // add starting position
+        resultsData.Results.map(driver => {
+            const entry = driverData.find(entry => entry.driver === driver.Driver.driverId);
+            entry.position.push(driver.grid)
         })
         // add time and position for each lap
         lapsData.map((lap) => {
@@ -36,7 +41,6 @@ const formatRoundData = (data) => {
         // add pitstop laps and durations to results data
         pitstopData.map(pitstop => {
             const driverEntry = resultsData.Results.find(entry => entry.Driver.driverId === pitstop.driverId)
-            console.log(driverEntry)
             driverEntry.pitstops ?
                 driverEntry.pitstops.push({ lap: pitstop.lap, duration: pitstop.duration })
                 : driverEntry.pitstops = [];
@@ -49,8 +53,8 @@ const formatRoundData = (data) => {
             driverData: getDriverData(),
             raceName: resultsData.raceName,
             results: getResultsData(),
-            round: resultsData.round
+            round: resultsData.round,
         };
 };
 
-export default formatRoundData;
+export default RoundData;

@@ -1,10 +1,7 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import { useState } from "react";
 
-const Header = ({ roundData, season, onClick }) => {
-    const [roundName, setRoundName] = useState(null);
-
+const Header = ({ roundData, round, season, onClick }) => {
     const races = season?.MRData.RaceTable.Races;
     const year = season?.MRData.RaceTable.season;
 
@@ -13,30 +10,41 @@ const Header = ({ roundData, season, onClick }) => {
     const rounds = races?.map(race => {
         if (race?.round === roundData?.round) {
             return (
-                <Dropdown.Item active onClick={() => {
+                <Dropdown.Item id="dropdown-menu-active-item" active key={race.round} onClick={() => {
                     onClick(race.round)
-                    setRoundName(` ${race?.raceName} - ${race?.circuitName}`)
                 }}>
                     {`${race.round}. ${race.raceName}`}
                 </Dropdown.Item>)
         }
         return (
-            <Dropdown.Item onClick={() => {
+            <Dropdown.Item key={race.round} onClick={() => {
                 onClick(race.round)
-                setRoundName(` ${race?.raceName} - ${race?.circuitName}`)
             }}>
                 {`${race.round}. ${race.raceName}`}
             </Dropdown.Item>)
     })
 
+    const getRoundName = () => {
+        if (!round && !roundData) {
+            return null;
+        }
+        if (round && !isNaN(round)) {
+            console.log(races)
+            return ` ${races[round - 1]?.raceName} - ${races[round - 1]?.Circuit.circuitName}`;
+        }
+        return ` ${roundData?.raceName} - ${roundData?.circuitName}`;
+    }
+
     return (
         <div className="Dash-header">
-            <DropdownButton id="dropdown" title="Select round">
-                {rounds}
-            </DropdownButton>
+            {rounds &&
+                <DropdownButton id="dropdown-button" title="Select round">
+                    {rounds}
+                </DropdownButton>
+            }
             <div className="Text-container">
                 {year}
-                {roundName}
+                {getRoundName()}
             </div>
         </div>
     )

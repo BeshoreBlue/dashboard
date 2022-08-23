@@ -2,8 +2,11 @@ import Table from 'react-bootstrap/Table';
 import Card from "react-bootstrap/Card";
 
 const ResultsTable = ({ data }) => {
+    if (!data) {
+        return null;
+    }
 
-    const resultsBody = data?.map(driver => {
+    const resultsBody = data.map(driver => {
         return (
             <tr>
                 <td>{driver.position}</td>
@@ -19,7 +22,7 @@ const ResultsTable = ({ data }) => {
     return (
         <Card id="dash-card">
             <Card.Header>Race results</Card.Header>
-            <Card.Body>
+            <Card.Body id="dash-card-content">
                 <Table striped bordered hover size="sm" className="Data-table">
                     <thead>
                     <tr>
