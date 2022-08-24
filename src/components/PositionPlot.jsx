@@ -20,7 +20,7 @@ const PositionPlot = ({ data }) => {
     return (
         <Card id="dash-card">
             <Card.Header>Driver position by lap</Card.Header>
-            <Card.Body id="dash-card-content">
+            <Card.Body>
                 <Plot
                     data={positionByLapData}
                     layout={{

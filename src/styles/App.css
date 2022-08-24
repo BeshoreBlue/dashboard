@@ -6,16 +6,18 @@
   --dark-green: #0f342b;
   --pale-green: #79b3b4;
 
-  height: 100vh;
+  /* Sizes */
+  --small: 20px;
 }
 
 .App {
-  background-color: var(--grey);
+
 }
 
 .center-container {
   display: flex;
   justify-content: center;
+  margin-top: var(--small);
 }
 
 

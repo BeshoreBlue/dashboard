@@ -7,34 +7,29 @@ import PitstopsTable from "./PitstopsTable";
 import ResultsTable from "./ResultsTable";
 import Spinner from "react-bootstrap/Spinner";
 
+// TODO - see if plot and table components can be more generalised
 const Dashboard = ({ roundData, error, loading }) => {
     if (loading) {
         return (
-            <div className="dashboard">
                 <div className="center-container">
                     <Spinner animation="border" variant="success" />
                 </div>
-            </div>
         )
     }
 
     if (error) {
         return (
-            <div className="dashboard">
                 <div className="center-container">
                     Couldn't fetch data - {`${error.name}: ${error.message}`}
                 </div>
-            </div>
         )
     }
 
     if (!roundData || !(roundData?.driverData && roundData?.results)) {
         return (
-            <div className="dashboard">
                 <div className="center-container">
                     No race data available yet
                 </div>
-            </div>
         )
     }
 

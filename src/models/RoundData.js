@@ -19,8 +19,9 @@ const RoundData = (data) => {
         /* Create entries with starting grid position for each starting driver
         Grid position could be 0 if driver didn't start or started from pitlane */
         const driverData = resultsData.Results.map(driver => {
+            const grid = driver.grid < 1 ? null : driver.grid;
             return {
-                driver: driver.Driver.driverId, time: [null], position: [driver.grid]
+                driver: driver.Driver.driverId, time: [null], position: [grid]
             }
         })
         /* For each driver, add time and position for each lap

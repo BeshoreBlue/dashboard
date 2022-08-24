@@ -28,7 +28,7 @@ const PitstopsTable = ({ data }) => {
     return (
         <Card id="dash-card">
             <Card.Header>Pitstops</Card.Header>
-            <Card.Body id="dash-card-content">
+            <Card.Body>
                 <Table striped bordered hover size="sm" className="data-table">
                     <thead>
                     <tr className="table-header">
