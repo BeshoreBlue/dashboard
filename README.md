@@ -1,7 +1,12 @@
 # Dashboard
 
-Dashboard that visualises F1 race data from https://ergast.com/mrd/. \
+Dashboard that visualises an F1 season's race data from https://ergast.com/mrd/. \
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+All plots are interactive:
+- Click on legend items to toggle the lines on and off
+- Double-click on a legend item to show only that line
+- Click and drag to zoom
 
 ## Installation
 
@@ -19,7 +24,7 @@ Runs at [http://localhost:3000](http://localhost:3000)
 ### `npm test`
 Press a to run all tests
 
-## To create and deply production build
+## To create and deploy production build
 
 ```zsh
 $ npm run build
