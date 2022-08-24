@@ -1,7 +1,7 @@
 import Table from 'react-bootstrap/Table';
 import Card from "react-bootstrap/Card";
 
-const ResultsTable = ({ data }) => {
+const ResultsTable = ({data}) => {
     if (!data) {
         return null;
     }
@@ -48,7 +48,7 @@ const ResultsTable = ({ data }) => {
                     </tr>
                     </thead>
                     <tbody>
-                        {resultsBody}
+                    {resultsBody}
                     </tbody>
                 </Table>
             </Card.Body>

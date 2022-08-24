@@ -1,13 +1,13 @@
 :root {
-  /* Colours */
-  --grey: #dce4e4;
-  --base-green: #146961;
-  --dark-grey: #1c1f1f;
-  --dark-green: #0f342b;
-  --pale-green: #79b3b4;
+    /* Colours */
+    --grey: #dce4e4;
+    --base-green: #146961;
+    --dark-grey: #1c1f1f;
+    --dark-green: #0f342b;
+    --pale-green: #79b3b4;
 
-  /* Sizes */
-  --small: 20px;
+    /* Sizes */
+    --small: 20px;
 }
 
 .App {
@@ -15,9 +15,9 @@
 }
 
 .center-container {
-  display: flex;
-  justify-content: center;
-  margin-top: var(--small);
+    display: flex;
+    justify-content: center;
+    margin-top: var(--small);
 }
 
 

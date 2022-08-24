@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Plot from "react-plotly.js";
 
-const PositionPlot = ({ data }) => {
+const PositionPlot = ({data}) => {
     if (!data) {
         return null;
     }

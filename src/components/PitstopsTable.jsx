@@ -1,7 +1,7 @@
 import Table from 'react-bootstrap/Table';
 import Card from "react-bootstrap/Card";
 
-const PitstopsTable = ({ data }) => {
+const PitstopsTable = ({data}) => {
     if (!data) {
         return null;
     }

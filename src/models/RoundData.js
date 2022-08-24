@@ -11,7 +11,7 @@ const RoundData = (data) => {
     /* Race hasn't run yet or all data missing.
     Return round so Header can show correct race name */
     if (!lapsData && !pitstopData && !resultsData) {
-        return { round: data[2].MRData.RaceTable.round || 1 }
+        return {round: data[2].MRData.RaceTable.round || 1}
     }
 
     // Data for position and lap time plots
@@ -44,19 +44,19 @@ const RoundData = (data) => {
         pitstopData.forEach(pitstop => {
             const driverEntry = results.find(entry => entry.Driver.driverId === pitstop.driverId)
             driverEntry?.pitstops
-                ? driverEntry.pitstops.push({ lap: pitstop.lap, duration: pitstop.duration })
-                : driverEntry.pitstops = [{ lap: pitstop.lap, duration: pitstop.duration }];
+                ? driverEntry.pitstops.push({lap: pitstop.lap, duration: pitstop.duration})
+                : driverEntry.pitstops = [{lap: pitstop.lap, duration: pitstop.duration}];
         })
         return results;
     }
 
-     return {
-            circuitName: resultsData.Circuit.circuitName,
-            driverData: getDriverData(),
-            raceName: resultsData.raceName,
-            results: getResultsData(),
-            round: resultsData.round,
-        };
+    return {
+        circuitName: resultsData.Circuit.circuitName,
+        driverData: getDriverData(),
+        raceName: resultsData.raceName,
+        results: getResultsData(),
+        round: resultsData.round,
+    };
 };
 
 export default RoundData;

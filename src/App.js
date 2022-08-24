@@ -16,7 +16,7 @@ function App() {
     const [round, setRound] = useState('last');
 
     // Get races in current season
-    useEffect( () => {
+    useEffect(() => {
         setAppLoading(true);
         fetch('http://ergast.com/api/f1/current.json')
             .then((res) => res.json())
@@ -32,18 +32,20 @@ function App() {
     }, [])
 
     // Get data for specified race
-    useEffect( () => {
+    useEffect(() => {
         const urls = [
             `https://ergast.com/api/f1/current/${round}/laps.json?limit=2500`,
             `https://ergast.com/api/f1/current/${round}/pitstops.json?limit=100`,
             `https://ergast.com/api/f1/current/${round}/results.json`
         ];
         setRoundLoading(true);
+
         async function fetchData() {
             return await Promise.all(
                 urls.map(url =>
                     fetch(url).then((res) => res.json())))
         }
+
         fetchData().then(
             (data) => {
                 setRoundLoading(false)
@@ -57,11 +59,11 @@ function App() {
 
     if (appLoading) {
         return (
-                <div className="App">
-                    <div className="center-container">
-                        <Spinner animation="border" variant="success" />
-                    </div>
+            <div className="App">
+                <div className="center-container">
+                    <Spinner animation="border" variant="success"/>
                 </div>
+            </div>
         )
     }
 
@@ -75,7 +77,7 @@ function App() {
         )
     }
 
-  return (
+    return (
         <div className="App">
             <Header
                 season={season}
@@ -91,7 +93,7 @@ function App() {
                 error={roundError}
             />
         </div>
-  );
+    );
 }
 
 export default App;

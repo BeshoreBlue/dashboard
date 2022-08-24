@@ -24,8 +24,17 @@ Runs at [http://localhost:3000](http://localhost:3000)
 ### `npm test`
 Press a to run all tests
 
-## To create and deploy production build
+## To create a production build
 
 ```zsh
 $ npm run build
 ```
+
+## Known issues
+- Windows scrollbar causes misalignment of table headers (no issue on Mac)
+
+## Next steps
+- Unit tests for Dashboard.jsx and related components
+- Highlight specific team's results on tables
+- Toggle pitstops and fastest laps on plots
+- Data over season plots eg. driver finishing position vs round

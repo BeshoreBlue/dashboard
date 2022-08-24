@@ -2,7 +2,7 @@ import '../styles/Header.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-const Header = ({ roundData, round, season, onClick }) => {
+const Header = ({roundData, round, season, onClick}) => {
     const races = season?.MRData.RaceTable.Races;
     const year = season?.MRData.RaceTable.season;
 

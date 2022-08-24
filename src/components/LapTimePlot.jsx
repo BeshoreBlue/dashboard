@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Plot from "react-plotly.js";
 
-const LapTimePlot = ({ data }) => {
+const LapTimePlot = ({data}) => {
     if (!data) {
         return null;
     }
