@@ -8,20 +8,25 @@ const RoundData = (data) => {
     const pitstopData = data[1].MRData.RaceTable.Races[0]?.PitStops;
     const resultsData = data[2].MRData.RaceTable.Races[0];
 
+    /* Race hasn't run yet or all data missing.
+    Return round so Header can show correct race name */
     if (!lapsData && !pitstopData && !resultsData) {
         return { round: data[2].MRData.RaceTable.round || 1 }
     }
 
+    // Data for position and lap time plots
     const getDriverData = () => {
-        // create entries for each starting driver
-        const driverData = resultsData.Results.map(result => {
+        /* Create entries with starting grid position for each starting driver
+        Grid position could be 0 if driver didn't start or started from pitlane */
+        const driverData = resultsData.Results.map(driver => {
             return {
-                driver: result.Driver.driverId, time: [null], position: [result.grid]
+                driver: driver.Driver.driverId, time: [null], position: [driver.grid]
             }
         })
-        // add time and position for each lap
-        lapsData?.map((lap) => {
-            lap.Timings.map((driver) => {
+        /* For each driver, add time and position for each lap
+         Data only exists where driver finished at least one lap */
+        lapsData?.forEach((lap) => {
+            lap.Timings.forEach((driver) => {
                 const entry = driverData.find(entry => entry.driver === driver.driverId);
                 entry?.time.push(driver.time);
                 entry?.position.push(driver.position)
@@ -30,14 +35,16 @@ const RoundData = (data) => {
         return driverData;
     }
 
+    // Data for pitstop and results tables
     const getResultsData = () => {
         const results = resultsData.Results;
-        // add pitstop laps and durations to results data
-        pitstopData.map(pitstop => {
-            const driverEntry = resultsData.Results.find(entry => entry.Driver.driverId === pitstop.driverId)
-            driverEntry.pitstops ?
-                driverEntry.pitstops.push({ lap: pitstop.lap, duration: pitstop.duration })
-                : driverEntry.pitstops = [];
+        /* Add pitstops to results so pitstop table can include finishing position
+        Pitstops could be null if driver didn't start or finish */
+        pitstopData.forEach(pitstop => {
+            const driverEntry = results.find(entry => entry.Driver.driverId === pitstop.driverId)
+            driverEntry?.pitstops
+                ? driverEntry.pitstops.push({ lap: pitstop.lap, duration: pitstop.duration })
+                : driverEntry.pitstops = [{ lap: pitstop.lap, duration: pitstop.duration }];
         })
         return results;
     }
