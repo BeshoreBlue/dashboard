@@ -22,14 +22,14 @@ const Header = ({roundData, round, season, onClick}) => {
         * Need to use roundData as round state could be string eg 'last' */
         if (race?.round === roundData?.round) {
             return (
-                <Dropdown.Item id="menu-active-item" active key={race.round} onClick={() => {
+                <Dropdown.Item data-testid="select-option" id="menu-active-item" active key={race.round} onClick={() => {
                     onClick(race.round)
                 }}>
                     {`${race.round}. ${race.raceName}`}
                 </Dropdown.Item>)
         }
         return (
-            <Dropdown.Item key={race.round} onClick={() => {
+            <Dropdown.Item data-testid="select-option" key={race.round} onClick={() => {
                 onClick(race.round)
             }}>
                 {`${race.round}. ${race.raceName}`}
