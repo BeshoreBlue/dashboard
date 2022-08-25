@@ -7,6 +7,6 @@ services:
       - .:/dashboard
     ports:
       - 3000:3000
-    image: app:react
+    image: dashboard:latest
     container_name: react_container
     command: npm start
