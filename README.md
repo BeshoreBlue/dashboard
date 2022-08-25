@@ -8,33 +8,36 @@ All plots are interactive:
 - Double-click on a legend item to show only that line
 - Click and drag to zoom
 
-## Installation
-
+## Get code
 ```zsh
 $ git clone git@github.com:BeshoreBlue/dashboard.git
-$ cd dashboard
-$ npm install
 ```
 
-## To run in dev mode
-### `npm start`
-Runs at [http://localhost:3000](http://localhost:3000)
-
-## To run Jest unit tests
-### `npm test`
-Press a to run all tests
-
-## To create a production build
+## Run dev mode
 
 ```zsh
-$ npm run build
+$ cd dashboard
+$ npm install
+$ npm start
 ```
+Runs at [http://localhost:3000](http://localhost:3000)
+
+## Run dev mode in a Docker container
+
+```zsh
+$ docker-compose up --build
+```
+Runs at [http://localhost:3000](http://localhost:3000)
+
+## Run unit tests
+### `npm test`
+Press a to run all tests
 
 ## Known issues
 - Windows scrollbar causes misalignment of table headers (no issue on Mac)
 
 ## Next steps
 - Unit tests for Dashboard.jsx and related components
-- Highlight specific team's results on tables
-- Toggle pitstops and fastest laps on plots
+- Toggleable team and/or driver results on tables
+- Toggleable pitstops and fastest laps on plots
 - Data over season plots eg. driver finishing position vs round
